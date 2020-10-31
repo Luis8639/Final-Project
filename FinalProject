@@ -1,0 +1,193 @@
+from graphics import *
+
+
+win = GraphWin("MY window", 1500, 1100)
+win.setBackground(color_rgb(0, 0, 0))
+
+#pt = Point(200,100)
+#pt2 = Point(400,300)
+
+
+#Set up Big Blocks
+big1 = Rectangle(Point(200,100),Point(400,300))
+big1.setFill("red")
+big1.setOutline("black")
+big1.draw(win)
+
+big2 = Rectangle(Point(1000,100),Point(1200,300))
+big2.setFill("blue")
+big2.setOutline("black")
+big2.draw(win)
+
+
+big3 = Rectangle(Point(200,800),Point(400,1000))
+big3.setFill("green")
+big3.setOutline("black")
+big3.draw(win)
+
+big4 = Rectangle(Point(1000,800),Point(1200,1000))
+big4.setFill("yellow")
+big4.setOutline("black")
+big4.draw(win)
+
+
+sqr2 = Rectangle(Point(300,200), Point(400,100))
+sqr2.setFill("black")
+sqr2.setOutline("red")
+
+
+midCube = Rectangle(Point(450,325), Point(950,775))
+midCube.setFill("white")
+midCube.setOutline("black")
+midCube.draw(win)
+
+#green triangle
+vert = [Point(500,350), Point(700,550), Point(500,750)]
+triangle1 = Polygon(vert)
+triangle1.setFill("green")
+triangle1.setOutline("black")
+triangle1.draw(win)
+
+#red triangle
+vert = [Point(500,350), Point(700,550), Point(900,350)]
+triangle2 = Polygon(vert)
+triangle2.setFill("red")
+triangle2.setOutline("black")
+triangle2.draw(win)
+
+#blue triangle
+vert = [Point(900,350), Point(700,550), Point(900,750)]
+triangle3 = Polygon(vert)
+triangle3.setFill("blue")
+triangle3.setOutline("black")
+triangle3.draw(win)
+
+#yellow triangle
+vert = [Point(500,750), Point(700,550), Point(900,750)]
+triangle4 = Polygon(vert)
+triangle4.setFill("yellow")
+triangle4.setOutline("black")
+triangle4.draw(win)
+
+#Top set of cubes
+cube = {}
+cube2 = {}
+cube3 = {}
+y_offset = 28
+for i in range(1,8):
+    cube["sqr{0}".format(i)] = Rectangle(Point(600,100+y_offset), Point(660,128+y_offset))
+    cube2["sqr{0}".format(i)] = Rectangle(Point(660,100+y_offset), Point(720,128+y_offset))
+    cube3["sqr{0}".format(i)] = Rectangle(Point(720,100+y_offset), Point(780,128+y_offset))
+    y_offset+=28
+    
+cubes = [cube, cube2, cube3]
+flag = False
+for cbs in cubes:
+    for keys, values in cbs.items():
+        #print(keys, '->', values)
+        tmp = values
+        if flag:
+            tmp.setFill("red")
+        else:
+            tmp.setFill("white")
+        tmp.setOutline("black")
+        tmp.draw(win)
+    flag = not flag
+    
+finalRed = Rectangle(Point(660, 324), Point(720, 352))
+finalRed.setFill("red")
+finalRed.setOutline("black")
+finalRed.draw(win)
+    
+#bottom set of cube
+cube = {}
+cube2 = {}
+cube3 = {}
+y_offset = 28
+for i in range(1,8):
+    cube["sqr{0}".format(i)] = Rectangle(Point(600,750+y_offset), Point(660,778+y_offset))
+    cube2["sqr{0}".format(i)] = Rectangle(Point(660,750+y_offset), Point(720,778+y_offset))
+    cube3["sqr{0}".format(i)] = Rectangle(Point(720,750+y_offset), Point(780,778+y_offset))
+    y_offset+=28
+    
+cubes = [cube, cube2, cube3]
+flag = False
+for cbs in cubes:
+    for keys, values in cbs.items():
+        #print(keys, '->', values)
+        tmp = values
+        if flag:
+            tmp.setFill("yellow")
+        else:
+            tmp.setFill("white")
+        tmp.setOutline("black")
+        tmp.draw(win)
+    flag = not flag
+    
+finalYellow = Rectangle(Point(660, 750), Point(720, 778))
+finalYellow.setFill("yellow")
+finalYellow.setOutline("black")
+finalYellow.draw(win)
+
+#left cubes
+cube = {}
+cube2 = {}
+cube3 = {}
+x_offset = 28
+for i in range(1,8):
+    cube["sqr{0}".format(i)] = Rectangle(Point(225 + x_offset,450), Point(253+ x_offset,500))
+    cube2["sqr{0}".format(i)] = Rectangle(Point(225+ x_offset,500), Point(253+ x_offset,550))
+    cube3["sqr{0}".format(i)] = Rectangle(Point(225+ x_offset,550), Point(253+ x_offset,600))
+    x_offset+=28
+    
+cubes = [cube, cube2, cube3]
+flag = False
+for cbs in cubes:
+    for keys, values in cbs.items():
+        print(keys, '->', values)
+        tmp = values
+        if flag:
+            tmp.setFill("green")
+        else:
+            tmp.setFill("white")
+        tmp.setOutline("black")
+        tmp.draw(win)
+    flag = not flag
+  
+finalGreen = Rectangle(Point(449,500), Point(477,550))
+finalGreen.setFill("green")
+finalGreen.setOutline("black")
+finalGreen.draw(win)
+
+#right cubes
+cube = {}
+cube2 = {}
+cube3 = {}
+x_offset = 28
+for i in range(1,8):
+    cube["sqr{0}".format(i)] = Rectangle(Point(925 + x_offset,450), Point(962+ x_offset,500))
+    cube2["sqr{0}".format(i)] = Rectangle(Point(925+ x_offset,500), Point(962+ x_offset,550))
+    cube3["sqr{0}".format(i)] = Rectangle(Point(925+ x_offset,550), Point(962+ x_offset,600))
+    x_offset+=28
+    
+cubes = [cube, cube2, cube3]
+flag = False
+for cbs in cubes:
+    for keys, values in cbs.items():
+        print(keys, '->', values)
+        tmp = values
+        if flag:
+            tmp.setFill("blue")
+        else:
+            tmp.setFill("white")
+        tmp.setOutline("black")
+        tmp.draw(win)
+    flag = not flag  
+
+
+finalBlue = Rectangle(Point(925,500), Point(953,550))
+finalBlue.setFill("blue")
+finalBlue.setOutline("black")
+finalBlue.draw(win)
+
+win.getMouse()
